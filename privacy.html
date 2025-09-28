@@ -32,7 +32,10 @@ hr{border:0;border-top:1px solid var(--bd);margin:16px 0}
 .footerlinks{margin-top:14px;font-size:14px}
 .headerline{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
 .tagline{color:#c7d2ff;font-size:14px}
-  </style>
+table{width:100%;border-collapse:collapse;margin:10px 0;background:rgba(255,255,255,.03)}
+th,td{padding:10px;border:1px solid #2a3456;vertical-align:top}
+th{background:rgba(255,255,255,.06);text-align:left}
+</style>
 </head>
 <body>
   <div class="container">
@@ -47,12 +50,12 @@ hr{border:0;border-top:1px solid var(--bd);margin:16px 0}
 
       <div class="toc">
         <strong>Contents</strong>
-        <a href="#scope">1. Scope</a>
+        <a href="#collection-notice">1. Collection notice (PIPA/GDPR overview)</a>
         <a href="#data">2. Data we collect</a>
         <a href="#use">3. How we use data</a>
         <a href="#lawful">4. Lawful bases (GDPR)</a>
-        <a href="#share">5. Sharing & processors</a>
-        <a href="#recaptcha">6. reCAPTCHA & App Check</a>
+        <a href="#sharing">5. Sharing & processors</a>
+        <a href="#selfie">6. Selfie capture for verification</a>
         <a href="#retention">7. Retention</a>
         <a href="#rights">8. Your rights</a>
         <a href="#security">9. Security</a>
@@ -62,71 +65,101 @@ hr{border:0;border-top:1px solid var(--bd);margin:16px 0}
         <a href="#contact">13. Contact</a>
       </div>
 
-      <h2 id="scope">1) Scope</h2>
-      <p>K-agape (“we”, “us”) operates a faith-based matching service. This policy explains how we collect, use, and share personal information when you visit our website and submit an application.</p>
+      <h2 id="collection-notice">1) Collection notice (PIPA-style summary)</h2>
+      <table>
+        <tr><th>Category</th><th>Items</th><th>Purpose</th><th>Retention</th></tr>
+        <tr>
+          <td>Contact</td>
+          <td>Name, email, phone (SMS verification)</td>
+          <td>Identify, contact, account/verification</td>
+          <td>Pending applications: up to 12 months; Rejected: up to 6 months; Accepted: while account is active + 2 years</td>
+        </tr>
+        <tr>
+          <td>Profile</td>
+          <td>Gender, DOB, location, denomination/church, faith narrative, preferences</td>
+          <td>Eligibility & matching</td>
+          <td>Same as above</td>
+        </tr>
+        <tr>
+          <td>Media (optional)</td>
+          <td>Photos, <em>selfie for verification</em></td>
+          <td>Profile review / identity verification</td>
+          <td>Selfies: 90 days for pending/rejected; for approved users, while account is active + 2 years</td>
+        </tr>
+        <tr>
+          <td>Security</td>
+          <td>App Check tokens, reCAPTCHA scores, server logs</td>
+          <td>Abuse prevention, fraud, safety</td>
+          <td>Logs up to 12 months</td>
+        </tr>
+      </table>
 
       <h2 id="data">2) Data we collect</h2>
       <ul>
         <li><strong>Contact:</strong> name, email, phone (may be verified by SMS).</li>
         <li><strong>Profile:</strong> gender, date of birth, country/city, denomination/church, church attendance, relationship goals, social links, and your faith narrative.</li>
-        <li><strong>Technical:</strong> device/browser info, IP-derived region, referrer/UTM parameters; basic analytics.</li>
-        <li><strong>Verification:</strong> phone verification status and a transient verification user ID from Firebase Auth.</li>
-        <li><strong>Uploads (optional):</strong> photo(s) you choose to provide.</li>
-        <li><strong>Sensitive data:</strong> faith-related information you submit. We only process this with your explicit consent for matching purposes.</li>
+        <li><strong>Uploads (optional):</strong> photos you choose to provide.</li>
+        <li><strong>Selfie (optional but recommended):</strong> an image captured for manual identity verification. We do <em>not</em> derive biometric templates unless you later opt into an automated provider.</li>
+        <li><strong>Technical/Security:</strong> device/browser info, IP-derived region; App Check tokens, reCAPTCHA scores; basic analytics.</li>
+        <li><strong>Sensitive data:</strong> the faith-related information you submit. We process this only with your explicit consent for matching.</li>
       </ul>
 
       <h2 id="use">3) How we use data</h2>
       <ul>
         <li>Review applications and determine eligibility for onboarding.</li>
-        <li>Verify identity (e.g., SMS), prevent abuse, and protect the community (e.g., Firebase App Check).</li>
+        <li>Verify identity (e.g., SMS and optional selfie), prevent abuse, protect the community (e.g., Firebase App Check and reCAPTCHA).</li>
         <li>Communicate decisions, onboarding steps, and—if opted in—updates and invitations.</li>
         <li>Operate, maintain, and improve the service; comply with law; enforce policies.</li>
       </ul>
 
       <h2 id="lawful">4) Lawful bases (GDPR, if applicable)</h2>
       <ul>
-        <li><strong>Consent:</strong> faith information; marketing emails (opt-in).</li>
-        <li><strong>Contract:</strong> to process your application and provide requested services.</li>
-        <li><strong>Legitimate interests:</strong> safety, fraud prevention, service improvement.</li>
+        <li><strong>Consent:</strong> faith information; selfie capture; marketing emails; international transfers where required.</li>
+        <li><strong>Contract:</strong> process your application and provide requested services.</li>
+        <li><strong>Legitimate interests:</strong> community safety, fraud prevention, service improvement.</li>
         <li><strong>Legal obligation:</strong> to comply with applicable laws and lawful requests.</li>
       </ul>
 
-      <h2 id="share">5) Sharing & processors</h2>
-      <p>We do not sell your personal data. We share information with service providers who help us run the service, including:</p>
+      <h2 id="sharing">5) Sharing & processors</h2>
+      <p>We do not sell personal data. We share information with service providers who help us run the service, including:</p>
       <ul>
         <li><strong>Google Firebase:</strong> Firestore, Storage, Authentication, App Check.</li>
-        <li><strong>SMS delivery via Firebase Auth (Google):</strong> for phone verification.</li>
-        <li>Analytics/hosting providers used to operate our website.</li>
+        <li><strong>SMS via Firebase Auth (Google):</strong> phone verification.</li>
+        <li>Hosting/analytics providers for the website.</li>
+        <li>Optional, if enabled later: an identity vendor (e.g., Stripe Identity/Persona) for automated liveness/face match with separate consent.</li>
       </ul>
-      <p>Access is limited to authorized staff and processors under appropriate agreements.</p>
 
-      <h2 id="recaptcha">6) reCAPTCHA & App Check</h2>
-      <p>We use Google reCAPTCHA and Firebase App Check to protect our forms from abuse. reCAPTCHA is subject to Google’s
-      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> and
-      <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a>.</p>
+      <h2 id="selfie">6) Selfie capture for verification</h2>
+      <p>If you choose to submit a selfie, we store the image solely for manual identity verification and community safety. We do not compute or store biometric templates unless we explicitly ask for additional consent to use an automated identity vendor. You can withdraw consent at any time by contacting us; we will delete the selfie unless we must retain it for safety, fraud prevention, or legal reasons.</p>
 
       <h2 id="retention">7) Retention</h2>
-      <p>We retain application data as long as necessary for review, safety, and legal compliance. You may request deletion at any time.</p>
+      <ul>
+        <li><strong>Pending applications:</strong> up to 12 months.</li>
+        <li><strong>Rejected applications:</strong> up to 6 months.</li>
+        <li><strong>Approved/active members:</strong> while the account is active, and up to 2 years after closure for safety and legal purposes.</li>
+        <li><strong>Selfies:</strong> 90 days if pending/rejected; for approved users, while account is active + 2 years.</li>
+        <li>Server/security logs: up to 12 months.</li>
+      </ul>
 
       <h2 id="rights">8) Your rights</h2>
       <ul>
         <li>Request access, correction, deletion, or restriction of your data.</li>
-        <li>Object to certain processing or withdraw consent (e.g., marketing) at any time.</li>
+        <li>Withdraw consent at any time (e.g., selfie, faith info, marketing).</li>
         <li>Data portability (where applicable).</li>
         <li>Lodge a complaint with your local supervisory authority (EU/UK residents).</li>
       </ul>
 
       <h2 id="security">9) Security</h2>
-      <p>We apply administrative, technical, and organizational measures to protect your data, including Firebase security rules, least-privilege access, and monitoring. No system is 100% secure.</p>
+      <p>We apply administrative, technical, and organizational measures (e.g., App Check, least-privilege access, storage rules, monitoring). No system is 100% secure.</p>
 
       <h2 id="children">10) Children</h2>
-      <p>K-agape is for adults 18+. We do not knowingly collect data from minors. If you believe a minor has provided data, contact us to remove it.</p>
+      <p>K-agape is for adults 18+. If you believe a minor has provided data, contact us to remove it.</p>
 
       <h2 id="intl">11) International transfers</h2>
-      <p>Your data may be processed in countries where our processors operate (e.g., the United States). Where required, we rely on appropriate safeguards such as Standard Contractual Clauses.</p>
+      <p>Your data may be processed in countries where our providers operate (e.g., the United States). Where required, we rely on appropriate safeguards such as Standard Contractual Clauses and obtain your consent.</p>
 
       <h2 id="changes">12) Changes</h2>
-      <p>We may update this policy. Material changes will be posted with a new “Effective” date.</p>
+      <p>We may update this policy; material changes will be posted with a new “Effective” date.</p>
 
       <h2 id="contact">13) Contact</h2>
       <p>Email: <a href="mailto:support@k-agape.app">support@k-agape.app</a><br>
